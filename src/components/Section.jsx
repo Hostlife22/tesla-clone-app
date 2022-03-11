@@ -8,9 +8,11 @@ const Section = ({
   backgroundImg,
   leftBtnText,
   rightBtnText,
+  urlId,
+  nextId,
 }) => {
   return (
-    <Wrap bgImage={backgroundImg}>
+    <Wrap bgImage={backgroundImg} id={urlId}>
       <Fade bottom>
         <ItemText>
           <h1>{title}</h1>
@@ -23,7 +25,9 @@ const Section = ({
             <LeftButton>{leftBtnText}</LeftButton>
             {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
           </ButtonGroup>
-          <DownArrow src="/images/down-arrow.svg" />
+          <a href={`#${nextId}`}>
+            <DownArrow src="/images/down-arrow.svg" />
+          </a>
         </Fade>
       </Buttons>
     </Wrap>

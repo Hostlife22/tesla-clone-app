@@ -17,7 +17,10 @@ const Header = () => {
       <Menu>
         {cars &&
           cars.map((car) => (
-            <a href="#" key={car.id}>
+            <a
+              href={`#${car.title.toLowerCase().replace(" ", "-")}`}
+              key={car.id}
+            >
               {car.title}
             </a>
           ))}
@@ -35,17 +38,19 @@ const Header = () => {
         {cars &&
           cars.map((car) => (
             <li key={car.id}>
-              <a href="#">{car.title}</a>
+              <a href={`#${car.title.toLowerCase().replace(" ", "-")}`}>
+                {car.title}
+              </a>
             </li>
           ))}
         <li>
-          <a href="#">Existing Inventory</a>
+          <a href="#panels">Existing Inventory</a>
         </li>
         <li>
-          <a href="#">Used Inventory</a>
+          <a href="#roofs">Used Inventory</a>
         </li>
         <li>
-          <a href="#">Trade-in</a>
+          <a href="#accessories">Trade-in</a>
         </li>
         <li>
           <a href="#">Cubertruck </a>
