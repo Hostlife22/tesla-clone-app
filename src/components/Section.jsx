@@ -1,5 +1,4 @@
 import React from "react";
-import Fade from "react-reveal/Fade";
 import styled from "styled-components";
 
 const Section = ({
@@ -13,22 +12,19 @@ const Section = ({
 }) => {
   return (
     <Wrap bgImage={backgroundImg} id={urlId}>
-      <Fade bottom>
-        <ItemText>
-          <h1>{title}</h1>
-          <p>{description}</p>
-        </ItemText>
-      </Fade>
+      <ItemText>
+        <h1>{title}</h1>
+        <p>{description}</p>
+      </ItemText>
+
       <Buttons>
-        <Fade bottom>
-          <ButtonGroup>
-            <LeftButton>{leftBtnText}</LeftButton>
-            {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
-          </ButtonGroup>
-          <a href={`#${nextId}`}>
-            <DownArrow src="/images/down-arrow.svg" />
-          </a>
-        </Fade>
+        <ButtonGroup>
+          <LeftButton>{leftBtnText}</LeftButton>
+          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+        </ButtonGroup>
+        <a href={`#${nextId}`}>
+          <DownArrow src="/images/down-arrow.svg" />
+        </a>
       </Buttons>
     </Wrap>
   );
