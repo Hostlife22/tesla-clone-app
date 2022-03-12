@@ -1,5 +1,30 @@
+import { motion } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+
+const textAnimation = {
+  hidden: {
+    x: -100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    x: 0,
+    opacity: 1,
+    transition: { duration: 0.5, delay: custom * 0.2 },
+  }),
+};
+
+const buttonAnimation = {
+  hidden: {
+    y: 100,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    y: 0,
+    opacity: 1,
+    transition: { duration: 0.5, delay: custom * 0.2 },
+  }),
+};
 
 const Section = ({
   title,
@@ -11,16 +36,36 @@ const Section = ({
   nextId,
 }) => {
   return (
-    <Wrap bgImage={backgroundImg} id={urlId}>
+    <Wrap
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ amount: 0.2 }}
+      bgImage={backgroundImg}
+      id={urlId}
+    >
       <ItemText>
-        <h1>{title}</h1>
-        <p>{description}</p>
+        <motion.h1 custom={1} variants={textAnimation}>
+          {title}
+        </motion.h1>
+        <motion.p custom={2} variants={textAnimation}>
+          {description}
+        </motion.p>
       </ItemText>
 
       <Buttons>
-        <ButtonGroup>
-          <LeftButton>{leftBtnText}</LeftButton>
-          {rightBtnText && <RightButton>{rightBtnText}</RightButton>}
+        <ButtonGroup
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ amount: 0.3, once: true }}
+        >
+          <LeftButton custom={1} variants={buttonAnimation}>
+            {leftBtnText}
+          </LeftButton>
+          {rightBtnText && (
+            <RightButton custom={2} variants={buttonAnimation}>
+              {rightBtnText}
+            </RightButton>
+          )}
         </ButtonGroup>
         <a href={`#${nextId}`}>
           <DownArrow src="/images/down-arrow.svg" />
@@ -32,7 +77,7 @@ const Section = ({
 
 export default Section;
 
-const Wrap = styled.div`
+const Wrap = motion(styled.div`
   width: 100vw;
   height: 100vh;
   background-size: cover;
@@ -43,7 +88,7 @@ const Wrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-`;
+`);
 
 const ItemText = styled.div`
   padding-top: 15vh;
@@ -51,16 +96,16 @@ const ItemText = styled.div`
   z-index: 10;
 `;
 
-const ButtonGroup = styled.div`
+const ButtonGroup = motion(styled.div`
   display: flex;
   margin-bottom: 30px;
 
   @media (max-width: 768px) {
     flex-direction: column;
   }
-`;
+`);
 
-const LeftButton = styled.div`
+const LeftButton = motion(styled.div`
   background-color: rgba(23, 26, 32, 0.8);
   height: 40px;
   width: 256px;
@@ -74,13 +119,13 @@ const LeftButton = styled.div`
   font-size: 12px;
   cursor: pointer;
   margin: 8px;
-`;
+`);
 
-const RightButton = styled(LeftButton)`
+const RightButton = motion(styled(LeftButton)`
   background: white;
   opacity: 0.65;
   color: black;
-`;
+`);
 
 const DownArrow = styled.img`
   height: 40px;

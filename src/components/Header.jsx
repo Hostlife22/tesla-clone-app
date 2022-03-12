@@ -11,7 +11,7 @@ const Header = () => {
 
   return (
     <Container>
-      <a>
+      <a href="/#">
         <img src="/images/logo.svg" alt="logo" />
       </a>
       <Menu>
@@ -27,8 +27,8 @@ const Header = () => {
       </Menu>
 
       <RightMenu>
-        <a href="#">Shop</a>
-        <a href="#">Tesla Account</a>
+        <a href="/#">Shop</a>
+        <a href="/#">Tesla Account</a>
         <CustomMenu onClick={() => setBurgerStatus(true)} />
       </RightMenu>
       <BurgerNav show={burgerStatus}>
@@ -53,13 +53,13 @@ const Header = () => {
           <a href="#accessories">Trade-in</a>
         </li>
         <li>
-          <a href="#">Cubertruck </a>
+          <a href="/#">Cubertruck </a>
         </li>
         <li>
-          <a href="#">Roadaster </a>
+          <a href="/#">Roadaster </a>
         </li>
         <li>
-          <a href="#">Semi </a>
+          <a href="/#">Semi </a>
         </li>
       </BurgerNav>
     </Container>
@@ -78,7 +78,7 @@ const Container = styled.div`
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 11;
 `;
 
 const Menu = styled.div`
