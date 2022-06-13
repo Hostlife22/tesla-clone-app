@@ -2,6 +2,10 @@
 
 ### [Site link](https://angry-sinoussi-fee981.netlify.app/)
 
+<kbd>
+  <img align="right" alt="img" src="tPrVMEP.jpeg"  />
+</kbd>
+
  ### 🛠 The tech stack is:
 
 
